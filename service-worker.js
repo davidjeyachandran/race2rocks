@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/race2rocks/precache-manifest.9c8fae9482c0cc2acf828c37d29502b4.js"
+  "/race2rocks/precache-manifest.b260d8f8700655da637defa6746b415c.js"
 );
 
 self.addEventListener('message', (event) => {
