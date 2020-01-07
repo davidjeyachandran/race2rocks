@@ -1,0 +1,938 @@
+[
+  {
+    "Name": "Allen George",
+    "Time": "32:50",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Amy George",
+    "Time": "1:26:13",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Andrea Orange",
+    "Time": "39:48",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Brandon Krohn",
+    "Time": "39:34",
+    "Year": 2013,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Bruce Blackbell",
+    "Time": "52:32",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Carol Valiente",
+    "Time": "1:16:10",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Christine Jeyachandran",
+    "Time": "1:10:20",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Christine Yee",
+    "Time": "1:21:44",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "David Jeyachandran",
+    "Time": "35:15",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "David Kitzman",
+    "Time": "38:30",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Dawn Beacham",
+    "Time": "1:19:11",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Deb Quinn",
+    "Time": "1:26:13",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Eric Carpenter",
+    "Time": "48:24",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Esther Yee",
+    "Time": "58:00",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Haide Camacho",
+    "Time": "1:26:13",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Jaimie Lewis",
+    "Time": "1:05:31",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Jeff Krohn",
+    "Time": "30:21",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Martin Wieland",
+    "Time": "32:03",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Mary Beth Penner",
+    "Time": "1:08:52",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Mia George",
+    "Time": "1:19:08",
+    "Year": 2013,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Morgan Powell",
+    "Time": "44:18",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Paul George",
+    "Time": "1:03:00",
+    "Year": 2013,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Percy Valiente",
+    "Time": "1:03:14",
+    "Year": 2013,
+    "Category": "Men"
+  },
+  {
+    "Name": "Rachel Wenzel",
+    "Time": "39:45",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Robbye Fielden",
+    "Time": "1:10:20",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Sarah George",
+    "Time": "1:25:50",
+    "Year": 2013,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Stacey Krohn",
+    "Time": "41:50",
+    "Year": 2013,
+    "Category": "Women"
+  },
+  {
+    "Name": "Alexis Hagg",
+    "Time": "40:41",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Allen George",
+    "Time": "31:41",
+    "Year": 2014,
+    "Category": "Men"
+  },
+  {
+    "Name": "Aly Frazier",
+    "Time": "50:47",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Andrea Orange",
+    "Time": "38:04",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Bethany Glines",
+    "Time": "44:49",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Brandon Krohn",
+    "Time": "36:39",
+    "Year": 2014,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Brendan Connally",
+    "Time": "37:53",
+    "Year": 2014,
+    "Category": "Men"
+  },
+  {
+    "Name": "Dan Smith",
+    "Time": "30:13",
+    "Year": 2014,
+    "Category": "Men"
+  },
+  {
+    "Name": "David Jeyachandran",
+    "Time": "34:48",
+    "Year": 2014,
+    "Category": "Men"
+  },
+  {
+    "Name": "Estelle Käser",
+    "Time": "39:12",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Jeff Krohn",
+    "Time": "30:38",
+    "Year": 2014,
+    "Category": "Men"
+  },
+  {
+    "Name": "Martha Käser",
+    "Time": "59:34",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Martin Wieland",
+    "Time": "30:50",
+    "Year": 2014,
+    "Category": "Men"
+  },
+  {
+    "Name": "Mary Beth Penner",
+    "Time": "1:01:56",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Mateo Wieland",
+    "Time": "1:16:55",
+    "Year": 2014,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Morgan Powell",
+    "Time": "36:40",
+    "Year": 2014,
+    "Category": "Men"
+  },
+  {
+    "Name": "Paul George",
+    "Time": "1:17:02",
+    "Year": 2014,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Sarah George",
+    "Time": "1:17:42",
+    "Year": 2014,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Siegfried Reuter",
+    "Time": "40:03",
+    "Year": 2014,
+    "Category": "Men"
+  },
+  {
+    "Name": "Stacey Krohn",
+    "Time": "46:15",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Vegas Dargatz",
+    "Time": "1:02:50",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Violeta",
+    "Time": "1:03:58",
+    "Year": 2014,
+    "Category": "Women"
+  },
+  {
+    "Name": "Allen George",
+    "Time": "31:48",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Amelia Jeyachandran",
+    "Time": "1:12:11",
+    "Year": 2015,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Andrea Orange",
+    "Time": "38:02",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "Angela Yee",
+    "Time": "1:11:45",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "Annabelle Jeyachandran",
+    "Time": "1:12:11",
+    "Year": 2015,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Brandon Krohn",
+    "Time": "37:54",
+    "Year": 2015,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Brendan Connally",
+    "Time": "41:56",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Brian Langley",
+    "Time": "33:40",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Chris Confer",
+    "Time": "1:03:37",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Christine Jeyachandran",
+    "Time": "1:15:30",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "David Jeyachandran",
+    "Time": "37:24",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "David Kitzman",
+    "Time": "33:14",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Don Orange",
+    "Time": "46:11",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Esther Yee",
+    "Time": "57:56",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "Jaimie Lewis",
+    "Time": "1:11:40",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Jeff Krohn",
+    "Time": "30:57",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Jonathan Krohn",
+    "Time": "1:00:47",
+    "Year": 2015,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Lizzie White",
+    "Time": "52:40",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "Martin Wieland",
+    "Time": "37:07",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Mary Beth Penner",
+    "Time": "1:11:11",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "Mary Orange",
+    "Time": "46:11",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "Mateo Wieland",
+    "Time": "1:05:35",
+    "Year": 2015,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Morgan Powell",
+    "Time": "1:09:53",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Nathan Krohn",
+    "Time": "44:33",
+    "Year": 2015,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Nathanael Wieland",
+    "Time": "1:08:26",
+    "Year": 2015,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Paul George",
+    "Time": "44:41",
+    "Year": 2015,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Sarah George",
+    "Time": "1:11:09",
+    "Year": 2015,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Siegfried Reuter",
+    "Time": "41:30",
+    "Year": 2015,
+    "Category": "Men"
+  },
+  {
+    "Name": "Stacey Krohn",
+    "Time": "1:00:55",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "Vegas Dargatz",
+    "Time": "53:14",
+    "Year": 2015,
+    "Category": "Women"
+  },
+  {
+    "Name": "Adam Brinks",
+    "Time": "50:36",
+    "Year": 2016,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Amelia Jeyachandran",
+    "Time": "1:07:42",
+    "Year": 2016,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Annabelle Jeyachandran",
+    "Time": "1:02:24",
+    "Year": 2016,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Brandon Krohn",
+    "Time": "34:02",
+    "Year": 2016,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Brian Langley",
+    "Time": "1:02:24",
+    "Year": 2016,
+    "Category": "Men"
+  },
+  {
+    "Name": "Christine Jeyachandran",
+    "Time": "1:13:34",
+    "Year": 2016,
+    "Category": "Women"
+  },
+  {
+    "Name": "David Jeyachandran",
+    "Time": "36:24",
+    "Year": 2016,
+    "Category": "Men"
+  },
+  {
+    "Name": "Ethan Brinks",
+    "Time": "55:56",
+    "Year": 2016,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Flavio",
+    "Time": "33:58",
+    "Year": 2016,
+    "Category": "Men"
+  },
+  {
+    "Name": "Gracie Brinks",
+    "Time": "1:12:08",
+    "Year": 2016,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Jeff Krohn",
+    "Time": "29:52",
+    "Year": 2016,
+    "Category": "Men"
+  },
+  {
+    "Name": "Jonathon Krohn",
+    "Time": "1:02:09",
+    "Year": 2016,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Lizzie White",
+    "Time": "51:10",
+    "Year": 2016,
+    "Category": "Women"
+  },
+  {
+    "Name": "Marcy Brinks",
+    "Time": "1:12:08",
+    "Year": 2016,
+    "Category": "Women"
+  },
+  {
+    "Name": "Maria Panaggio",
+    "Time": "43:46",
+    "Year": 2016,
+    "Category": "Women"
+  },
+  {
+    "Name": "Morgan Powell",
+    "Time": "45:47",
+    "Year": 2016,
+    "Category": "Men"
+  },
+  {
+    "Name": "Paris Segura",
+    "Time": "45:57",
+    "Year": 2016,
+    "Category": "Men"
+  },
+  {
+    "Name": "Sandro",
+    "Time": "1:01:39",
+    "Year": 2016,
+    "Category": "Men"
+  },
+  {
+    "Name": "Sandy",
+    "Time": "58:50",
+    "Year": 2016,
+    "Category": "Women"
+  },
+  {
+    "Name": "Siegfried Reuter",
+    "Time": "40:21",
+    "Year": 2016,
+    "Category": "Men"
+  },
+  {
+    "Name": "Tali Langley",
+    "Time": "1:02:23",
+    "Year": 2016,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Violeta",
+    "Time": "1:01:38",
+    "Year": 2016,
+    "Category": "Women"
+  },
+  {
+    "Name": "Adam Brink",
+    "Time": "42:00",
+    "Year": 2017,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Allen George",
+    "Time": "33:17",
+    "Year": 2017,
+    "Category": "Men"
+  },
+  {
+    "Name": "Anna Grummit",
+    "Time": "47:00",
+    "Year": 2017,
+    "Category": "Women"
+  },
+  {
+    "Name": "Brian Langley",
+    "Time": "1:01:48",
+    "Year": 2017,
+    "Category": "Men"
+  },
+  {
+    "Name": "Caterina Wieland",
+    "Time": "1:12:40",
+    "Year": 2017,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Chuck Millette",
+    "Time": "34:28",
+    "Year": 2017,
+    "Category": "Men"
+  },
+  {
+    "Name": "David Kitzman",
+    "Time": "40:24",
+    "Year": 2017,
+    "Category": "Men"
+  },
+  {
+    "Name": "Ethan Brink",
+    "Time": "46:42",
+    "Year": 2017,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Gracie Brink",
+    "Time": "1:09:10",
+    "Year": 2017,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Lydia Brink",
+    "Time": "1:09:05",
+    "Year": 2017,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Mary Beth Penner",
+    "Time": "1:03:59",
+    "Year": 2017,
+    "Category": "Women"
+  },
+  {
+    "Name": "Mateo Wieland",
+    "Time": "37:05",
+    "Year": 2017,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Mia George",
+    "Time": "53:25",
+    "Year": 2017,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Morgan Powell",
+    "Time": "42:11",
+    "Year": 2017,
+    "Category": "Men"
+  },
+  {
+    "Name": "Natalia Langley",
+    "Time": "1:01:48",
+    "Year": 2017,
+    "Category": "Women"
+  },
+  {
+    "Name": "Nathanael Wieland",
+    "Time": "1:09:05",
+    "Year": 2017,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Paris Segura",
+    "Time": "37:13",
+    "Year": 2017,
+    "Category": "Men"
+  },
+  {
+    "Name": "Paul George",
+    "Time": "39:31",
+    "Year": 2017,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Sam Chan",
+    "Time": "50:39",
+    "Year": 2017,
+    "Category": "Men"
+  },
+  {
+    "Name": "Siegfried Reuter",
+    "Time": "41:08",
+    "Year": 2017,
+    "Category": "Men"
+  },
+  {
+    "Name": "Allen George",
+    "Time": "58:57",
+    "Year": 2018,
+    "Category": "Men"
+  },
+  {
+    "Name": "Amelia Jeyachandran",
+    "Time": "56:20",
+    "Year": 2018,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Annabelle Jeyachandran",
+    "Time": "45:25",
+    "Year": 2018,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Barry Plett",
+    "Time": "50:06",
+    "Year": 2018,
+    "Category": "Men"
+  },
+  {
+    "Name": "Brendan Connally",
+    "Time": "39:30",
+    "Year": 2018,
+    "Category": "Men"
+  },
+  {
+    "Name": "Caterina Wieland",
+    "Time": "45:25",
+    "Year": 2018,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "David Jeyachandran",
+    "Time": "36:13",
+    "Year": 2018,
+    "Category": "Men"
+  },
+  {
+    "Name": "Joel Marx",
+    "Time": "44:55",
+    "Year": 2018,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Lizzie White",
+    "Time": "42:45",
+    "Year": 2018,
+    "Category": "Women"
+  },
+  {
+    "Name": "Martin Wieland",
+    "Time": "36:07",
+    "Year": 2018,
+    "Category": "Men"
+  },
+  {
+    "Name": "Mary Beth George",
+    "Time": "58:55",
+    "Year": 2018,
+    "Category": "Women"
+  },
+  {
+    "Name": "Mia George",
+    "Time": "49:50",
+    "Year": 2018,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Nataniel Wieland",
+    "Time": "1:08:51",
+    "Year": 2018,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Paul George",
+    "Time": "38:14",
+    "Year": 2018,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Samuel Jeyachandran",
+    "Time": "58:18",
+    "Year": 2018,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Susana Wieland",
+    "Time": "1:11:49",
+    "Year": 2018,
+    "Category": "Women"
+  },
+  {
+    "Name": "Timeo Wieland",
+    "Time": "1:11:49",
+    "Year": 2018,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Amelia Jeyachandran",
+    "Time": "59:27",
+    "Year": 2019,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Annabelle Jeyachandran",
+    "Time": "1:09:12",
+    "Year": 2019,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Caterina Wieland",
+    "Time": "1:08:50",
+    "Year": 2019,
+    "Category": "MK girl"
+  },
+  {
+    "Name": "Christine Jeyachandran",
+    "Time": "1:30:01",
+    "Year": 2019,
+    "Category": "Women"
+  },
+  {
+    "Name": "David Jeyachandran",
+    "Time": "35:40",
+    "Year": 2019,
+    "Category": "Men"
+  },
+  {
+    "Name": "Joel Marx",
+    "Time": "42:28",
+    "Year": 2019,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Joshua",
+    "Time": "52:30",
+    "Year": 2019,
+    "Category": "Men"
+  },
+  {
+    "Name": "Lizzie White",
+    "Time": "42:40",
+    "Year": 2019,
+    "Category": "Women"
+  },
+  {
+    "Name": "Martin Wieland",
+    "Time": "1:13:06",
+    "Year": 2019,
+    "Category": "Men"
+  },
+  {
+    "Name": "Mateo Wieland",
+    "Time": "40:24",
+    "Year": 2019,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Mateo Wieland",
+    "Time": "36:05",
+    "Year": 2019,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Morgan Powell",
+    "Time": "51:04",
+    "Year": 2019,
+    "Category": "Men"
+  },
+  {
+    "Name": "Nataniel Wieland",
+    "Time": "50:48",
+    "Year": 2019,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Samuel Jeyachandran",
+    "Time": "59:58",
+    "Year": 2019,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Sigfried Reuter",
+    "Time": "44:10",
+    "Year": 2019,
+    "Category": "Men"
+  },
+  {
+    "Name": "Susana Wieland",
+    "Time": "1:13:06",
+    "Year": 2019,
+    "Category": "Women"
+  },
+  {
+    "Name": "Tim Marx",
+    "Time": "59:58",
+    "Year": 2019,
+    "Category": "MK boy"
+  },
+  {
+    "Name": "Timeo Wieland",
+    "Time": "1:01:25",
+    "Year": 2019,
+    "Category": "MK boy"
+  }
+]
