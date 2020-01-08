@@ -3,3 +3,11 @@
   clear: both;
   display: table;
 }
+
+li:hover {
+  background-color: #ddd;
+}
+
+input {
+  width: 100%;
+}
