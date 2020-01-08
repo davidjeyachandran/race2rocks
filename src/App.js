@@ -11,11 +11,38 @@ function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [years, setYears] = useState([]);
 
+  function sortByTime(a, b) {
+
+    let secondsA = getSeconds(a.Time)
+    let secondsB = getSeconds(b.Time)
+    if (secondsA > secondsB) {
+      return 1;
+    }
+    if (secondsB > secondsA) {
+      return -1;
+    }
+    return 0;
+  }
+
+  function getSeconds(time) {
+    const DIVIDER = ':'
+    let timeArray = time.split(DIVIDER)
+
+    let length = timeArray.length
+    let seconds = 0
+    timeArray.forEach((item, i) => {
+      seconds += parseInt(item) * (Math.pow(60, (length - i - 1)))
+    })
+
+    return seconds;
+
+  }
+
   useEffect(() => {
     getDataFromServer('race2rocks.json')
       .then(data => {
         setData(data)
-        setFilteredData(data.sort())
+        setFilteredData(data.sort(sortByTime))
         setYears(pluck(data, 'Year'))
       })
   }, [])
