@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/race2rocks/static/css/main.c34975af.chunk.css",
-    "main.js": "/race2rocks/static/js/main.c1dcee38.chunk.js",
-    "main.js.map": "/race2rocks/static/js/main.c1dcee38.chunk.js.map",
+    "main.js": "/race2rocks/static/js/main.a379c6c4.chunk.js",
+    "main.js.map": "/race2rocks/static/js/main.a379c6c4.chunk.js.map",
     "runtime-main.js": "/race2rocks/static/js/runtime-main.3324b08f.js",
     "runtime-main.js.map": "/race2rocks/static/js/runtime-main.3324b08f.js.map",
     "static/js/2.7275ee03.chunk.js": "/race2rocks/static/js/2.7275ee03.chunk.js",
     "static/js/2.7275ee03.chunk.js.map": "/race2rocks/static/js/2.7275ee03.chunk.js.map",
     "index.html": "/race2rocks/index.html",
-    "precache-manifest.4427cd3a5b6057d8b63edd1ff1f3f813.js": "/race2rocks/precache-manifest.4427cd3a5b6057d8b63edd1ff1f3f813.js",
+    "precache-manifest.e563f9c5a70a5b88cef43a3fbc44467d.js": "/race2rocks/precache-manifest.e563f9c5a70a5b88cef43a3fbc44467d.js",
     "service-worker.js": "/race2rocks/service-worker.js",
     "static/css/main.c34975af.chunk.css.map": "/race2rocks/static/css/main.c34975af.chunk.css.map",
     "static/js/2.7275ee03.chunk.js.LICENSE": "/race2rocks/static/js/2.7275ee03.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3324b08f.js",
     "static/js/2.7275ee03.chunk.js",
     "static/css/main.c34975af.chunk.css",
-    "static/js/main.c1dcee38.chunk.js"
+    "static/js/main.a379c6c4.chunk.js"
   ]
 }
