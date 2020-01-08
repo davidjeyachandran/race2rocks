@@ -24,6 +24,10 @@ function App() {
     return 0;
   }
 
+  function sortByName(a, b) {
+    return (a.Name > b.Name) ? 1 : (a.Name < b.Name) ? -1 : 0
+  }
+
   function getSeconds(time) {
     const DIVIDER = ':'
     let timeArray = time.split(DIVIDER)
@@ -33,9 +37,7 @@ function App() {
     timeArray.forEach((item, i) => {
       seconds += parseInt(item) * (Math.pow(60, (length - i - 1)))
     })
-
     return seconds;
-
   }
 
   useEffect(() => {
