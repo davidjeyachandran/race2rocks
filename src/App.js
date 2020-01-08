@@ -10,6 +10,7 @@ function App() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [years, setYears] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   function sortByTime(a, b) {
 
@@ -46,6 +47,10 @@ function App() {
         setData(data)
         setFilteredData(data.sort(sortByTime))
         setYears(pluck(data, 'Year'))
+        let categoriesData = pluck(data, 'Category')
+        categoriesData.unshift('All')
+        setCategories(categoriesData)
+
       })
   }, [])
 
@@ -63,10 +68,28 @@ function App() {
     setFilteredData(filteredData)
   }
 
+  function setCategory(category) {
+    if (category === 'All') {
+      setFilteredData(data)
+    } else {
+      let newFilteredData = data.filter(item =>
+        item.Category === category
+      )
+      setFilteredData(newFilteredData)
+    }
+
+  }
+
   return (
     <div className="App container" style={{ maxWidth: '400px' }}>
       <h1>Race to the Rocks</h1>
-      <SearchForm years={years} setYear={setYear} filterName={filterName} />
+      <SearchForm
+        years={years}
+        setYear={setYear}
+        filterName={filterName}
+        categories={categories}
+        setCategory={setCategory}
+      />
       <Results data={filteredData} />
     </div>
   );
