@@ -14,8 +14,6 @@ function SearchForm({ years, setYear, filterName }) {
   function handleClick(e) {
     let year = e.currentTarget.dataset.id
     setYear(parseInt(year))
-    console.log(year);
-
   }
 
   const listStyle = { float: 'left', textDecoration: 'underline', listStyle: 'none', padding: '0 10px' }

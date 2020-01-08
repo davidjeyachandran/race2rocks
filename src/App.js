@@ -12,10 +12,10 @@ function App() {
   const [years, setYears] = useState([]);
 
   useEffect(() => {
-    getDataFromServer('/race2rocks.json')
+    getDataFromServer('race2rocks.json')
       .then(data => {
         setData(data)
-        setFilteredData(data)
+        setFilteredData(data.sort())
         setYears(pluck(data, 'Year'))
       })
   }, [])
