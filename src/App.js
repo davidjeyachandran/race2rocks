@@ -4,6 +4,8 @@ import './styles/skeleton.css';
 import Results from './components/Results'
 import SearchForm from './components/SearchForm'
 import { pluck } from './utilities'
+import ChartLine from './components/ChartLine'
+import { sortByTime } from './sort'
 
 function App() {
 
@@ -11,35 +13,7 @@ function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [years, setYears] = useState([]);
   const [categories, setCategories] = useState([]);
-
-  function sortByTime(a, b) {
-
-    let secondsA = getSeconds(a.Time)
-    let secondsB = getSeconds(b.Time)
-    if (secondsA > secondsB) {
-      return 1;
-    }
-    if (secondsB > secondsA) {
-      return -1;
-    }
-    return 0;
-  }
-
-  function sortByName(a, b) {
-    return (a.Name > b.Name) ? 1 : (a.Name < b.Name) ? -1 : 0
-  }
-
-  function getSeconds(time) {
-    const DIVIDER = ':'
-    let timeArray = time.split(DIVIDER)
-
-    let length = timeArray.length
-    let seconds = 0
-    timeArray.forEach((item, i) => {
-      seconds += parseInt(item) * (Math.pow(60, (length - i - 1)))
-    })
-    return seconds;
-  }
+  const [isOnePerson, setIsOnePerson] = useState(false);
 
   useEffect(() => {
     getDataFromServer('race2rocks.json')
@@ -59,6 +33,13 @@ function App() {
       item.Name.toLowerCase().includes(name.toLowerCase())
     )
     setFilteredData(filteredData)
+
+    let nameList = pluck(filteredData, 'Name')
+    if (nameList.length === 1) {
+      setIsOnePerson(true)
+    } else {
+      setIsOnePerson(false)
+    }
   }
 
   function setYear(year) {
@@ -77,7 +58,6 @@ function App() {
       )
       setFilteredData(newFilteredData)
     }
-
   }
 
   return (
@@ -91,6 +71,9 @@ function App() {
         setCategory={setCategory}
       />
       <Results data={filteredData} />
+      {isOnePerson ?
+        <ChartLine filteredData={filteredData} /> :
+        ''}
     </div>
   );
 }

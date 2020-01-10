@@ -15,7 +15,7 @@ function Results({ data }) {
         </thead>
         <tbody>
           {data.map(item =>
-            <Row key={item.Name + item.Time} data={item} />
+            <Row key={item.Name + item.Time + item.Year} data={item} />
           )}
         </tbody>
       </table>
