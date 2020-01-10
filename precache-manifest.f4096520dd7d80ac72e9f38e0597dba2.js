@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a2542ad32479cedfaab8205cafebd21f",
+    "revision": "be9f11ffe88a53a1893a4feea139bbdc",
     "url": "/race2rocks/index.html"
   },
   {
-    "revision": "18946d5e41f96a2bf296",
+    "revision": "b37dea8f0be28d259e11",
     "url": "/race2rocks/static/css/main.7010c1b0.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/race2rocks/static/js/2.43337b99.chunk.js.LICENSE"
   },
   {
-    "revision": "18946d5e41f96a2bf296",
-    "url": "/race2rocks/static/js/main.abd29def.chunk.js"
+    "revision": "b37dea8f0be28d259e11",
+    "url": "/race2rocks/static/js/main.7f3502b2.chunk.js"
   },
   {
     "revision": "174bbbbd4b32835d9b0e",
