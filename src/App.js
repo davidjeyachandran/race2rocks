@@ -47,6 +47,7 @@ function App() {
       item.Year === year
     )
     setFilteredData(filteredData)
+    setIsOnePerson(false)
   }
 
   function setCategory(category) {
@@ -57,6 +58,7 @@ function App() {
         item.Category === category
       )
       setFilteredData(newFilteredData)
+      setIsOnePerson(false)
     }
   }
 
@@ -70,10 +72,10 @@ function App() {
         categories={categories}
         setCategory={setCategory}
       />
-      <Results data={filteredData} />
       {isOnePerson ?
         <ChartLine filteredData={filteredData} /> :
         ''}
+      <Results data={filteredData} />
     </div>
   );
 }
