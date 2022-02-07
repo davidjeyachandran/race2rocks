@@ -6,6 +6,7 @@ import SearchForm from './components/SearchForm'
 import { pluck } from './utilities'
 import ChartLine from './components/ChartLine'
 import { sortByTime } from './sort'
+import './App.css'
 
 function App() {
 
