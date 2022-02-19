@@ -4,9 +4,9 @@
   "private": true,
   "homepage": "http://davidjeyachandran.github.io/race2rocks",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.18",
     "@types/react": "^17.0.39",
