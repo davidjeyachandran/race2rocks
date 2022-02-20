@@ -1,23 +1,31 @@
 import React, { useState } from 'react'
 import '../styles/SearchForm.css'
 
-function SearchForm({ years, setYear, filterName, categories, setCategory }) {
+interface PropTypes {
+  years: number[];
+  setYear: (year: (number | undefined)) => void;
+  filterName: (name: string) => void;
+  categories: string[];
+  setCategory: (category: (string | undefined)) => void
+}
+
+function SearchForm({ years, setYear, filterName, categories, setCategory }: PropTypes) {
 
   const [name, setName] = useState('');
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     let name = e.target.value
     setName(name)
     filterName(name)
   }
 
-  function handleClick(e) {
-    let year = e.currentTarget.dataset.id
+  function handleClick(e: React.MouseEvent<HTMLLIElement>) {
+    const year: string = e.currentTarget.dataset.id || ''
     setName('')
     setYear(parseInt(year))
   }
 
-  function handleClickCategories(e) {
+  function handleClickCategories(e: React.MouseEvent<HTMLLIElement>) {
     let category = e.currentTarget.dataset.id
     setName('')
     setCategory(category)
