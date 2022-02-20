@@ -1,6 +1,15 @@
 import React from 'react'
 
-function Row({ data }) {
+type DataType = {
+  data: {
+    Name: string;
+    Time: string;
+    Category: string;
+    Year: number
+  }
+}
+
+function Row({ data }: DataType) {
   return (
     <tr>
       <td>{data.Name}</td>
