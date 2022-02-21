@@ -3,12 +3,20 @@ import { Line } from 'react-chartjs-2'
 import { pluck, getSeconds } from '../utilities'
 import { sortByYear } from '../sort'
 
-function ChartLine({ filteredData }) {
+interface ChartLineProps {
+  filteredData: {
+    Time: string;
+    Name: string;
+  }[]
+}
+
+function ChartLine({ filteredData }: ChartLineProps) {
 
   let times = filteredData.sort(sortByYear).map(item => {
     let time = getSeconds(item.Time) / 60
     return Math.round(time * 1000) / 1000
   })
+
 
   const data = {
     labels: pluck(filteredData, 'Year'),
