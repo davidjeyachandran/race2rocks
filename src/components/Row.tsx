@@ -1,6 +1,6 @@
 import React from 'react'
 
-type DataType = {
+interface PropTypes {
   data: {
     Name: string;
     Time: string;
@@ -9,7 +9,7 @@ type DataType = {
   }
 }
 
-function Row({ data }: DataType) {
+function Row({ data }: PropTypes) {
   return (
     <tr>
       <td>{data.Name}</td>
