@@ -3,10 +3,10 @@ import '../styles/SearchForm.css'
 
 interface PropTypes {
   years: number[];
-  setYear: (year: (number | undefined)) => void;
+  setYear(year: (number | undefined)): void;
   filterName: (name: string) => void;
   categories: string[];
-  setCategory: (category: (string | undefined)) => void
+  setCategory(category: (string | undefined)): void
 }
 
 function SearchForm({ years, setYear, filterName, categories, setCategory }: PropTypes) {
