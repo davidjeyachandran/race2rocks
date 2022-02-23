@@ -1,6 +1,15 @@
 import React from 'react'
 
-function Row({ data }) {
+interface PropTypes {
+  data: {
+    Name: string;
+    Time: string;
+    Category: string;
+    Year: number
+  }
+}
+
+function Row({ data }: PropTypes) {
   return (
     <tr>
       <td>{data.Name}</td>

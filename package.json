@@ -4,14 +4,19 @@
   "private": true,
   "homepage": "http://davidjeyachandran.github.io/race2rocks",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.18",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
     "chart.js": "^2.9.3",
-    "react": "^16.12.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-chartjs-2": "^2.8.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^4.0.1",
+    "typescript": "^4.5.5"
   },
   "scripts": {
     "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
