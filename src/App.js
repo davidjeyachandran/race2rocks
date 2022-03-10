@@ -16,8 +16,10 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [isOnePerson, setIsOnePerson] = useState(false);
 
+  const DATA_LOCATION = 'data.json'
+
   useEffect(() => {
-    getDataFromServer('race2rocks.json')
+    getDataFromServer(DATA_LOCATION)
       .then(data => {
         setData(data)
         setFilteredData(data.sort(sortByTime))
