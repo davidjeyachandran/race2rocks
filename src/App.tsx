@@ -8,13 +8,19 @@ import ChartLine from './components/ChartLine'
 import { sortByTime } from './sort'
 import './App.css'
 
-function App() {
+type RunEntry = {
+  Name: string,
+  Time: string,
+  Year: number,
+  Category: string
+}
 
+function App() {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [years, setYears] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [isOnePerson, setIsOnePerson] = useState(false);
+  const [filteredData, setFilteredData] = useState<RunEntry[]>([]);
+  const [years, setYears] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [isOnePerson, setIsOnePerson] = useState<boolean>(false);
 
   const DATA_LOCATION = 'data.json'
 
@@ -31,8 +37,8 @@ function App() {
       })
   }, [])
 
-  function filterName(name) {
-    let filteredData = data.filter(item =>
+  function filterName(name: string) {
+    let filteredData: RunEntry[] = data.filter((item: RunEntry) =>
       item.Name.toLowerCase().includes(name.toLowerCase())
     )
     setFilteredData(filteredData)
@@ -45,19 +51,19 @@ function App() {
     }
   }
 
-  function setYear(year) {
-    let filteredData = data.filter(item =>
+  function setYear(year: number) {
+    let filteredData = data.filter((item: RunEntry) =>
       item.Year === year
     )
     setFilteredData(filteredData)
     setIsOnePerson(false)
   }
 
-  function setCategory(category) {
+  function setCategory(category: string) {
     if (category === 'All') {
       setFilteredData(data)
     } else {
-      let newFilteredData = data.filter(item =>
+      let newFilteredData = data.filter((item: RunEntry) =>
         item.Category === category
       )
       setFilteredData(newFilteredData)

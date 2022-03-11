@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../styles/SearchForm.css'
 
 interface PropTypes {
-  years: number[];
+  years: string[];
   setYear(year: (number | undefined)): void;
   filterName: (name: string) => void;
   categories: string[];
