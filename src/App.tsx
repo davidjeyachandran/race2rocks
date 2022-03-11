@@ -37,7 +37,7 @@ function App() {
       })
   }, [])
 
-  function filterName(name: string) {
+  const filterName = (name: string): void => {
     let filteredData: RunEntry[] = data.filter((item: RunEntry) =>
       item.Name.toLowerCase().includes(name.toLowerCase())
     )
@@ -51,7 +51,7 @@ function App() {
     }
   }
 
-  function setYear(year: number) {
+  const setYear = (year: number): void => {
     let filteredData = data.filter((item: RunEntry) =>
       item.Year === year
     )
@@ -59,7 +59,7 @@ function App() {
     setIsOnePerson(false)
   }
 
-  function setCategory(category: string) {
+  const setCategory = (category: string): void => {
     if (category === 'All') {
       setFilteredData(data)
     } else {
