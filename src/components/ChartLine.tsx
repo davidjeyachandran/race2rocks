@@ -4,10 +4,7 @@ import { pluck, getSeconds } from '../utilities'
 import { sortByYear } from '../sort'
 
 interface ChartLineProps {
-  filteredData: {
-    Time: string;
-    Name: string;
-  }[]
+  filteredData: RunEntry[]
 }
 
 function ChartLine({ filteredData }: ChartLineProps) {

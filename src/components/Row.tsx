@@ -1,12 +1,7 @@
 import React from 'react'
 
 interface PropTypes {
-  data: {
-    Name: string;
-    Time: string;
-    Category: string;
-    Year: number
-  }
+  data: RunEntry
 }
 
 function Row({ data }: PropTypes) {

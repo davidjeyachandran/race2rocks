@@ -8,13 +8,6 @@ import ChartLine from './components/ChartLine'
 import { sortByTime } from './sort'
 import './App.css'
 
-type RunEntry = {
-  Name: string,
-  Time: string,
-  Year: number,
-  Category: string
-}
-
 function App() {
   const [data, setData] = useState<RunEntry[]>([]);
   const [filteredData, setFilteredData] = useState<RunEntry[]>([]);
