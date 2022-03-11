@@ -12,10 +12,10 @@ export function sortByTime(a: { Time: string }, b: { Time: string }) {
   return 0;
 }
 
-export function sortByName(a, b) {
+export function sortByName(a: { Name: string }, b: { Name: string }) {
   return (a.Name > b.Name) ? 1 : (a.Name < b.Name) ? -1 : 0
 }
 
-export function sortByYear(a, b) {
+export function sortByYear(a: { Year: number }, b: { Year: number }) {
   return (a.Year > b.Year) ? 1 : (a.Year < b.Year) ? -1 : 0
 }
