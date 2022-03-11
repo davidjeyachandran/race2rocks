@@ -16,7 +16,7 @@ type RunEntry = {
 }
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<RunEntry[]>([]);
   const [filteredData, setFilteredData] = useState<RunEntry[]>([]);
   const [years, setYears] = useState<string[]>([]);
   const [categories, setCategories] = useState<string[]>([]);

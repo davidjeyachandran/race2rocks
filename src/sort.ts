@@ -1,6 +1,6 @@
 import { getSeconds } from './utilities'
 
-export function sortByTime(a, b) {
+export function sortByTime(a: { Time: string }, b: { Time: string }) {
   let secondsA = getSeconds(a.Time)
   let secondsB = getSeconds(b.Time)
   if (secondsA > secondsB) {
