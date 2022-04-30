@@ -5,6 +5,7 @@
     "homepage": "http://davidjeyachandran.github.io/race2rocks",
     "dependencies": {
         "@emotion/styled": "^11.8.1",
+        "@mui/icons-material": "^5.6.2",
         "@mui/material": "^5.6.3",
         "@mui/styled-engine-sc": "^5.6.1",
         "@mui/x-data-grid": "^5.10.0",
