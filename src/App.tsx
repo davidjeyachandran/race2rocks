@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { getDataFromServer } from './utilities'
-import './styles/skeleton.css';
 import Results from './components/Results'
 import SearchForm from './components/SearchForm'
 import { pluck } from './utilities'
@@ -68,7 +67,7 @@ function App() {
     return (
         <React.Fragment>
             <Header />
-            <Container maxWidth="sm" sx={{ textAlign: 'center' }}>
+            <Container maxWidth="sm" >
                 <SearchForm
                     years={years}
                     setYear={setYear}
