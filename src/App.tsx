@@ -6,7 +6,6 @@ import SearchForm from './components/SearchForm'
 import { pluck } from './utilities'
 import ChartLine from './components/ChartLine'
 import { sortByTime } from './sort'
-import './App.css'
 import { Container } from '@mui/material';
 import Header from './components/Header';
 
