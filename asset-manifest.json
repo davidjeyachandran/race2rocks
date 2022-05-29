@@ -1,20 +1,12 @@
 {
   "files": {
-    "main.css": "/race2rocks/static/css/main.9ac8f65f.chunk.css",
-    "main.js": "/race2rocks/static/js/main.17f05e51.chunk.js",
-    "main.js.map": "/race2rocks/static/js/main.17f05e51.chunk.js.map",
-    "runtime-main.js": "/race2rocks/static/js/runtime-main.cd664e89.js",
-    "runtime-main.js.map": "/race2rocks/static/js/runtime-main.cd664e89.js.map",
-    "static/js/2.93ecdea4.chunk.js": "/race2rocks/static/js/2.93ecdea4.chunk.js",
-    "static/js/2.93ecdea4.chunk.js.map": "/race2rocks/static/js/2.93ecdea4.chunk.js.map",
+    "main.js": "/race2rocks/static/js/main.fcb61047.js",
+    "static/js/787.370ceffd.chunk.js": "/race2rocks/static/js/787.370ceffd.chunk.js",
     "index.html": "/race2rocks/index.html",
-    "static/css/main.9ac8f65f.chunk.css.map": "/race2rocks/static/css/main.9ac8f65f.chunk.css.map",
-    "static/js/2.93ecdea4.chunk.js.LICENSE.txt": "/race2rocks/static/js/2.93ecdea4.chunk.js.LICENSE.txt"
+    "main.fcb61047.js.map": "/race2rocks/static/js/main.fcb61047.js.map",
+    "787.370ceffd.chunk.js.map": "/race2rocks/static/js/787.370ceffd.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.cd664e89.js",
-    "static/js/2.93ecdea4.chunk.js",
-    "static/css/main.9ac8f65f.chunk.css",
-    "static/js/main.17f05e51.chunk.js"
+    "static/js/main.fcb61047.js"
   ]
 }
