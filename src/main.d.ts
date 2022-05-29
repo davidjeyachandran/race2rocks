@@ -1,6 +1,6 @@
-type RunEntry = {
-    Name: string;
-    Time: string;
-    Year: number;
-    Category: string;
+interface RunDataType {
+    name: string;
+    time: string;
+    year: number;
+    category: string;
 }

@@ -1,42 +1,41 @@
-import { Container } from '@mui/material';
-import { DataGrid, GridColDef, GridRowParams } from '@mui/x-data-grid';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
-interface PropTypes {
-    data: {
-        Name: string;
-        Time: string;
-        Category: string;
-        Year: number
-    }[]
+interface ResultsProps {
+    data: RunDataType[]
 }
-
-function Results({ data }: PropTypes) {
-    const dataWithID = data.map((item) => ({ ...item, id: (item.Name + item.Time + item.Year) }))
-    const handleRowClick = (params: GridRowParams) => {
-        console.log(params)
-    }
-
-    const columns: GridColDef[] = [
-        { field: 'Name', headerName: 'Name', width: 180 },
-        { field: 'Time', headerName: 'Time', width: 80 },
-        { field: 'Category', headerName: 'Category', width: 80 },
-        { field: 'Year', headerName: 'Year', width: 80 },
-
-    ];
-
+export default function Results(props: ResultsProps) {
+    const { data } = props
     return (
-        <div style={{ display: 'flex', height: '100%', minHeight: '200px' }}>
-            <div style={{ flexGrow: 1 }}>
-                <DataGrid
-                    rows={dataWithID}
-                    columns={columns}
-                    pageSize={50}
-                    onRowClick={handleRowClick}
-                />
-            </div>
-        </div>
+        <>
+            <TableContainer component={Paper}>
+                <Table aria-label="Results table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Name</TableCell>
+                            <TableCell align="right">Time</TableCell>
+                            <TableCell align="right">Year</TableCell>
+                            <TableCell align="right">Category</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+
+                        {data.map((row) => (
+                            <TableRow key={row.name + row.time + row.year} >
+                                <TableCell component="th" scope="row">{row.name}</TableCell>
+                                <TableCell align="right">{row.time}</TableCell>
+                                <TableCell align="right">{row.year}</TableCell>
+                                <TableCell align="right">{row.category}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </>
     )
 }
-
-export default Results
-

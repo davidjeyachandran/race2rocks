@@ -1,17 +1,19 @@
-import { Container } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { AppBar, Box, Container, Toolbar, Typography } from '@mui/material'
 
-export default function Header() {
+interface propTypes {
+    title: string;
+}
+
+export default function Header(props: propTypes) {
+    const { title } = props
     return (
+
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
                     <Container maxWidth="sm" >
                         <Typography variant="h4" component="h1" sx={{ flexGrow: 1 }}>
-                            Race to the Rocks
+                            {title}
                         </Typography>
                     </Container>
                 </Toolbar>

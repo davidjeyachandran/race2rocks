@@ -1,21 +1,16 @@
-import { red } from "@mui/material/colors";
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material";
+import { green } from '@mui/material/colors';
 
 const theme = createTheme({
     typography: {
-        fontSize: 15,
+        fontSize: 15
     },
     palette: {
-        primary: {
-            main: '#556cd6',
-        },
+
         secondary: {
-            main: '#19857b',
-        },
-        error: {
-            main: red.A400,
+            main: green[500],
         }
     }
 })
 
-export default theme;
+export default theme
