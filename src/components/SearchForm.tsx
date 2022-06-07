@@ -39,7 +39,7 @@ function SearchForm(props: SearchFormProps) {
     return (
         <Box display="flex" flexWrap='wrap' justifyContent="space-between" marginY={2} border="thin">
 
-            <InputLabel id="demo-simple-select-label">Year</InputLabel>
+            <InputLabel id="year">Year</InputLabel>
             <Select
                 fullWidth
                 labelId="demo-simple-select-label"
@@ -65,7 +65,7 @@ function SearchForm(props: SearchFormProps) {
             ))}
             <TextField
                 fullWidth
-                id="standard-basic" label="Search..."
+                id="search" label="Search..."
                 variant="standard"
                 value={search}
                 onChange={handleTextChange}
