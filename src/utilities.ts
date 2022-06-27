@@ -20,10 +20,13 @@ export const pluck = function (objectArray: any[], element: string) {
     return uniqueList.sort()
 }
 
-export const getDataFromServer = async function (endpoint: string) {
-    let data = fetch(endpoint, {
+export const getDataFromServer = function (endpoint: string, token = null, useCache = true) {
+    const cache = useCache ? 'default' : 'no-cache';
+    return fetch(endpoint, {
         method: 'GET',
+        cache,
         headers: {
+            Authorization: `token ${token}`,
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
@@ -33,6 +36,4 @@ export const getDataFromServer = async function (endpoint: string) {
             return response;
         })
         .then(response => response.json())
-
-    return await data
 }
