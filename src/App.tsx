@@ -6,6 +6,7 @@ import { pluck } from './utilities';
 import { sortByTime } from './sort'
 import Results from './components/Results';
 import useLoadData from './hooks/useLoadData';
+import ChartLine from './components/ChartLine';
 
 const ENDPOINT = 'data.json'
 
@@ -15,6 +16,7 @@ function App() {
     const [categories, setCategories] = useState<string[]>([]);
 
     const [data, isLoading] = useLoadData(ENDPOINT)
+    const [isSinglePersonResults, setIsSinglePersonResults] = useState(false);
 
     function filterYear(yearSelected: number) {
         if (yearSelected < 0) {
@@ -30,6 +32,13 @@ function App() {
             item.name.toLowerCase().includes(search.toLowerCase())
         )
         setFilteredData(filtered)
+        const names = pluck(filtered, 'name')
+        if (names.length === 1) {
+            setIsSinglePersonResults(true)
+        }
+        else {
+            setIsSinglePersonResults(false)
+        }
     }
 
     function filterCategory(category: string) {
@@ -62,6 +71,7 @@ function App() {
                 />
                 {isLoading ? <p>Loading...</p>
                     : <Results data={filteredData} />}
+                {isSinglePersonResults && <ChartLine filteredData={filteredData} />}
             </Container>
         </>
     );
