@@ -38,7 +38,15 @@ function SearchForm(props: SearchFormProps) {
 
     return (
         <Box display="flex" flexWrap='wrap' justifyContent="space-between" marginY={2} border="thin">
-
+            <TextField
+                fullWidth
+                id="search"
+                label="Search..."
+                variant="standard"
+                value={search}
+                onChange={handleTextChange}
+                sx={{ mt: 2, mb: 2 }}
+            />
             <InputLabel id="year">Year</InputLabel>
             <Select
                 fullWidth
@@ -63,14 +71,6 @@ function SearchForm(props: SearchFormProps) {
                     {item}
                 </Button>
             ))}
-            <TextField
-                fullWidth
-                id="search" label="Search..."
-                variant="standard"
-                value={search}
-                onChange={handleTextChange}
-                sx={{ mt: 2 }}
-            />
         </Box >
     )
 }
