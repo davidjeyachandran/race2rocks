@@ -64,6 +64,6 @@
     "devDependencies": {
         "cypress": "^10.0.2",
         "gh-pages": "^2.2.0",
-        "webpack": "^5.72.0"
+        "webpack": "^5.76.0"
     }
 }
