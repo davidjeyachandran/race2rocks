@@ -27,6 +27,7 @@ function SearchForm(props: SearchFormProps) {
         const name: string = event.target.value
         setSearch(name)
         filterName(name)
+        setYear('All')
     }
 
     const handleCategoryClick = (event: React.MouseEvent) => {
@@ -34,6 +35,7 @@ function SearchForm(props: SearchFormProps) {
         if (value === 'All') value = ''
         filterCategory(value)
         setSearch('')
+        setYear('All')
     }
 
     return (

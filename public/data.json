@@ -1324,5 +1324,53 @@
         "time": "1:30:00",
         "year": 2023,
         "category": "Women"
+    },
+    {
+        "name": "Brendan Connally",
+        "time": "45:50",
+        "category": "Men",
+        "year": 2024
+    },
+    {
+        "name": "Edgar Aragón",
+        "time": "46:33",
+        "category": "Men",
+        "year": 2024
+    },
+    {
+        "name": "Siegfried Reuter",
+        "time": "46:48",
+        "category": "Men",
+        "year": 2024
+    },
+    {
+        "name": "Mary Beth George",
+        "time": "48:46",
+        "category": "Women",
+        "year": 2024
+    },
+    {
+        "name": "Carsten Rumbke",
+        "time": "52:03",
+        "category": "Men",
+        "year": 2024
+    },
+    {
+        "name": "Luhana Aragón",
+        "time": "1:12:34",
+        "category": "Women",
+        "year": 2024
+    },
+    {
+        "name": "Chloe Gardner",
+        "time": "1:12:39",
+        "category": "Women",
+        "year": 2024
+    },
+    {
+        "name": "David Gardner",
+        "time": "1:12:43",
+        "category": "Men",
+        "year": 2024
     }
 ]
