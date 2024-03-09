@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/race2rocks/static/js/main.17406cdd.js",
-    "static/js/787.370ceffd.chunk.js": "/race2rocks/static/js/787.370ceffd.chunk.js",
+    "main.js": "/race2rocks/static/js/main.5845eb1c.js",
+    "static/js/453.f73badc4.chunk.js": "/race2rocks/static/js/453.f73badc4.chunk.js",
     "index.html": "/race2rocks/index.html",
-    "main.17406cdd.js.map": "/race2rocks/static/js/main.17406cdd.js.map",
-    "787.370ceffd.chunk.js.map": "/race2rocks/static/js/787.370ceffd.chunk.js.map"
+    "main.5845eb1c.js.map": "/race2rocks/static/js/main.5845eb1c.js.map",
+    "453.f73badc4.chunk.js.map": "/race2rocks/static/js/453.f73badc4.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.17406cdd.js"
+    "static/js/main.5845eb1c.js"
   ]
 }
