@@ -1372,5 +1372,113 @@
         "time": "1:12:43",
         "category": "Men",
         "year": 2024
+    },
+    {
+        "name": "Allen George",
+        "time": "0:38:37",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Lizzie White",
+        "time": "0:42:49",
+        "category": "Women",
+        "year": 2025
+    },
+    {
+        "name": "Brendan Connally",
+        "time": "0:43:27",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Edgar Aragón",
+        "time": "0:47:23",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Joshua Castles",
+        "time": "0:50:27",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Mary Beth George",
+        "time": "0:53:16",
+        "category": "Women",
+        "year": 2025
+    },
+    {
+        "name": "Oliver Connaly",
+        "time": "0:59:35",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Waldermar Muñoz",
+        "time": "1:01:14",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Luhuana Aragón",
+        "time": "1:01:36",
+        "category": "Women",
+        "year": 2025
+    },
+    {
+        "name": "Elizabeth Muriano",
+        "time": "1:03:18",
+        "category": "Women",
+        "year": 2025
+    },
+    {
+        "name": "Siegfried Reuter",
+        "time": "1:03:56",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Elena Perez",
+        "time": "1:04:01",
+        "category": "Women",
+        "year": 2025
+    },
+    {
+        "name": "Anik Terrones",
+        "time": "1:08:32",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Luis Valencia",
+        "time": "1:08:34",
+        "category": "Men",
+        "year": 2025
+    },
+    {
+        "name": "Janoa Portugal",
+        "time": "1:26:29",
+        "category": "Women",
+        "year": 2025
+    },
+    {
+        "name": "Noelia Kim",
+        "time": "1:32:22",
+        "category": "Women",
+        "year": 2025
+    },
+    {
+        "name": "Kyubum Kim",
+        "time": "1:32:23",
+        "category": "Women",
+        "year": 2025
+    },
+    {
+        "name": "Jhonatan Portugal",
+        "time": "1:33:30",
+        "category": "Men",
+        "year": 2025
     }
 ]
