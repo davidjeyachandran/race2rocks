@@ -1,4 +1,4 @@
-import { Box, Chip, Typography } from '@mui/material';
+import { Alert, Box, Chip } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,9 +14,9 @@ export default function Results(props: ResultsProps) {
   const { data } = props
   if (data.length === 0) {
     return (
-      <Typography variant="body2" color="text.secondary" sx={{ py: 2 }}>
-        No results.
-      </Typography>
+      <Alert severity="info" variant="outlined">
+        No results. Try adjusting your filters.
+      </Alert>
     )
   }
   return (

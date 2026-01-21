@@ -1,4 +1,4 @@
-import { Button, Chip, Container, LinearProgress, Paper, Stack, Typography } from '@mui/material';
+import { Alert, Box, Button, Chip, Container, LinearProgress, Paper, Stack, Typography } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
 import Header from './components/Header'
 import SearchForm from './components/SearchForm';
@@ -20,53 +20,46 @@ function App() {
         category: 'All',
     })
 
-    const [data, isLoading] = useLoadData(ENDPOINT)
+    const [data, isLoading, error, reload] = useLoadData(ENDPOINT)
     const isSinglePersonResults = useMemo(() => {
         if (filteredData.length === 0) return false
         return new Set(filteredData.map(item => item.name)).size === 1
     }, [filteredData])
 
-    function showAll() {
-        setFilteredData([...data].sort(sortByTime))
-    }
-
     function clearFilters() {
         setFilters({ search: '', year: 'All', category: 'All' })
-        showAll()
     }
 
-    function filterYear(yearSelected: number) {
-        if (yearSelected < 0) {
-            showAll()
-            return
+    function applyFilters(input: RunDataType[], f: { search: string; year: string; category: string }) {
+        let out = input
+
+        const search = f.search.trim().toLowerCase()
+        if (search !== '') {
+            out = out.filter(item => item.name.toLowerCase().includes(search))
         }
-        const filtered = data.filter(item => item.year === yearSelected)
-        setFilteredData([...filtered].sort(sortByTime))
-    }
 
-    function filterName(search: string) {
-        const filtered = data.filter(item =>
-            item.name.toLowerCase().includes(search.toLowerCase())
-        )
-        setFilteredData([...filtered].sort(sortByTime))
-    }
-
-    function filterCategory(category: string) {
-        if (category === '') {
-            showAll()
-            return
+        if (f.year !== 'All') {
+            const yearSelected = Number.parseInt(f.year, 10)
+            if (Number.isFinite(yearSelected)) {
+                out = out.filter(item => item.year === yearSelected)
+            }
         }
-        const filtered = data.filter(item =>
-            item.category === category
-        )
-        setFilteredData([...filtered].sort(sortByTime))
+
+        if (f.category !== 'All') {
+            out = out.filter(item => item.category === f.category)
+        }
+
+        return [...out].sort(sortByTime)
     }
 
     useEffect(() => {
-        showAll()
         setYears(['All'].concat(pluck(data, 'year')))
         setCategories(['All'].concat(pluck(data, 'category')))
     }, [data])
+
+    useEffect(() => {
+        setFilteredData(applyFilters(data, filters))
+    }, [data, filters])
 
     const hasActiveFilters = filters.search !== '' || filters.year !== 'All' || filters.category !== 'All'
 
@@ -80,28 +73,33 @@ function App() {
                         categories={categories}
                         value={filters}
                         onSearchChange={(search) => {
-                            setFilters({ search, year: 'All', category: 'All' })
-                            filterName(search)
+                            setFilters(prev => ({ ...prev, search }))
                         }}
                         onYearChange={(year) => {
-                            const yearSelected: number = Number.isFinite(Number.parseInt(year, 10)) ? Number.parseInt(year, 10) : -1
-                            setFilters({ search: '', year, category: 'All' })
-                            filterYear(yearSelected)
+                            setFilters(prev => ({ ...prev, year }))
                         }}
                         onCategoryChange={(category) => {
-                            setFilters({ search: '', year: 'All', category })
-                            filterCategory(category === 'All' ? '' : category)
+                            setFilters(prev => ({ ...prev, category }))
                         }}
                     />
                     {hasActiveFilters && (
-                        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} alignItems={{ sm: 'center' }}>
-                            <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ flex: 1 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    gap: 1,
+                                    flex: 1,
+                                    flexWrap: { xs: 'nowrap', sm: 'wrap' },
+                                    overflowX: { xs: 'auto', sm: 'visible' },
+                                    WebkitOverflowScrolling: 'touch',
+                                    py: 0.5,
+                                }}
+                            >
                                 {filters.search !== '' && (
                                     <Chip
                                         label={`Search: ${filters.search}`}
                                         onDelete={() => {
-                                            setFilters({ search: '', year: 'All', category: 'All' })
-                                            filterName('')
+                                            setFilters(prev => ({ ...prev, search: '' }))
                                         }}
                                         variant="outlined"
                                         size="small"
@@ -111,8 +109,7 @@ function App() {
                                     <Chip
                                         label={`Year: ${filters.year}`}
                                         onDelete={() => {
-                                            setFilters({ search: '', year: 'All', category: 'All' })
-                                            filterYear(-1)
+                                            setFilters(prev => ({ ...prev, year: 'All' }))
                                         }}
                                         variant="outlined"
                                         size="small"
@@ -122,26 +119,39 @@ function App() {
                                     <Chip
                                         label={`Category: ${filters.category}`}
                                         onDelete={() => {
-                                            setFilters({ search: '', year: 'All', category: 'All' })
-                                            filterCategory('')
+                                            setFilters(prev => ({ ...prev, category: 'All' }))
                                         }}
                                         variant="outlined"
                                         size="small"
                                     />
                                 )}
-                            </Stack>
-                            <Button variant="text" onClick={clearFilters} sx={{ alignSelf: { xs: 'flex-start', sm: 'center' } }}>
+                            </Box>
+                            <Button variant="text" onClick={clearFilters}>
                                 Clear filters
                             </Button>
-                        </Stack>
+                        </Box>
                     )}
                     {isLoading ? (
                         <LinearProgress />
+                    ) : error ? (
+                        <Alert
+                            severity="error"
+                            variant="outlined"
+                            action={
+                                <Button color="inherit" size="small" onClick={reload}>
+                                    Retry
+                                </Button>
+                            }
+                        >
+                            Couldn&apos;t load results.
+                        </Alert>
                     ) : (
                         <>
-                            <Typography variant="body2" color="text.secondary">
-                                {filteredData.length} result{filteredData.length === 1 ? '' : 's'}
-                            </Typography>
+                            {filteredData.length > 0 && (
+                                <Typography variant="body2" color="text.secondary">
+                                    {filteredData.length} result{filteredData.length === 1 ? '' : 's'}
+                                </Typography>
+                            )}
                             <Results data={filteredData} />
                         </>
                     )}
