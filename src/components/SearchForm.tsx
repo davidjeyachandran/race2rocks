@@ -1,6 +1,6 @@
-import React from 'react'
-import { ChangeEvent, useState } from 'react'
-import { Box, InputLabel, MenuItem, Button, TextField } from '@mui/material'
+import type { ChangeEvent, MouseEvent } from 'react'
+import { useState } from 'react'
+import { FormControl, InputLabel, MenuItem, Paper, Stack, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface SearchFormProps {
@@ -14,6 +14,7 @@ interface SearchFormProps {
 function SearchForm(props: SearchFormProps) {
     const { years, categories, filterName, filterYear, filterCategory } = props
     const [year, setYear] = useState('All')
+    const [category, setCategory] = useState('All')
     const [search, setSearch] = useState('');
 
     const handleChangeSelect = (event: SelectChangeEvent) => {
@@ -21,6 +22,7 @@ function SearchForm(props: SearchFormProps) {
         setYear(event.target.value)
         filterYear(year)
         setSearch('')
+        setCategory('All')
     }
 
     const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -28,52 +30,63 @@ function SearchForm(props: SearchFormProps) {
         setSearch(name)
         filterName(name)
         setYear('All')
+        setCategory('All')
     }
 
-    const handleCategoryClick = (event: React.MouseEvent) => {
-        let value: string = event.currentTarget.getAttribute('data-id') || ''
-        if (value === 'All') value = ''
-        filterCategory(value)
+    const handleCategoryChange = (_event: MouseEvent<HTMLElement>, nextValue: string | null) => {
+        const value = nextValue ?? 'All'
+        setCategory(value)
+        filterCategory(value === 'All' ? '' : value)
         setSearch('')
         setYear('All')
     }
 
     return (
-        <Box display="flex" flexWrap='wrap' justifyContent="space-between" marginY={2} border="thin">
-            <TextField
-                fullWidth
-                id="search"
-                label="Search..."
-                variant="standard"
-                value={search}
-                onChange={handleTextChange}
-                sx={{ mt: 2, mb: 2 }}
-            />
-            <InputLabel id="year">Year</InputLabel>
-            <Select
-                fullWidth
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={year}
-                label="Year"
-                onChange={handleChangeSelect}
-                sx={{ mb: 2 }}
-            >
-                {years && years.length > 0 && years.map((item: string) => (
-                    <MenuItem key={item} value={item}>{item}</MenuItem>
-                ))}
-            </Select>
-            {categories.map((item: string) => (
-                <Button
-                    key={item}
-                    variant='contained'
-                    data-id={item}
-                    onClick={handleCategoryClick}
+        <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
+            <Stack spacing={2}>
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+                    <TextField
+                        fullWidth
+                        id="search"
+                        label="Search"
+                        placeholder="Start typing a name…"
+                        variant="outlined"
+                        size="small"
+                        value={search}
+                        onChange={handleTextChange}
+                    />
+                    <FormControl fullWidth size="small">
+                        <InputLabel id="year-label">Year</InputLabel>
+                        <Select
+                            fullWidth
+                            labelId="year-label"
+                            id="year"
+                            value={year}
+                            label="Year"
+                            onChange={handleChangeSelect}
+                        >
+                            {years && years.length > 0 && years.map((item: string) => (
+                                <MenuItem key={item} value={item}>{item}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+                </Stack>
+
+                <ToggleButtonGroup
+                    value={category}
+                    exclusive
+                    onChange={handleCategoryChange}
+                    size="small"
+                    sx={{ flexWrap: 'wrap' }}
                 >
-                    {item}
-                </Button>
-            ))}
-        </Box >
+                    {categories.map((item: string) => (
+                        <ToggleButton key={item} value={item}>
+                            {item}
+                        </ToggleButton>
+                    ))}
+                </ToggleButtonGroup>
+            </Stack>
+        </Paper>
     )
 }
 

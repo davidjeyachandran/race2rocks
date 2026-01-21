@@ -9,10 +9,10 @@ export default function Header(props: propTypes) {
     return (
 
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="sticky" elevation={0} sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Toolbar>
-                    <Container maxWidth="sm" >
-                        <Typography variant="h4" component="h1" sx={{ flexGrow: 1 }}>
+                    <Container maxWidth="md" disableGutters sx={{ px: 2 }}>
+                        <Typography variant="h5" component="h1" sx={{ fontWeight: 700, textAlign: 'center' }}>
                             {title}
                         </Typography>
                     </Container>

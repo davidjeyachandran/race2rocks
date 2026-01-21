@@ -3,13 +3,16 @@ import { Line } from 'react-chartjs-2'
 import { pluck, getSeconds } from '../utilities'
 import { sortByYear } from '../sort'
 
+ChartJS.register(CategoryScale, Legend, LinearScale, PointElement, LineElement);
+
 interface ChartLineProps {
   filteredData: RunDataType[]
 }
 
 function ChartLine({ filteredData }: ChartLineProps) {
 
-  let times = filteredData.sort(sortByYear).map(item => {
+  const sortedByYear = [...filteredData].sort(sortByYear)
+  const times = sortedByYear.map(item => {
     let time = getSeconds(item.time) / 60
     return Math.round(time * 1000) / 1000
   })
@@ -23,13 +26,13 @@ function ChartLine({ filteredData }: ChartLineProps) {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart',
+        text: 'Time (minutes) by year',
       },
     },
   };
 
   const data = {
-    labels: pluck(filteredData, 'year'),
+    labels: pluck(sortedByYear, 'year'),
     datasets: [
       {
         label: filteredData[0]?.name,
@@ -42,8 +45,6 @@ function ChartLine({ filteredData }: ChartLineProps) {
       }
     ]
   };
-
-  ChartJS.register(CategoryScale, Legend, LinearScale, PointElement, LineElement);
 
   return (
     <>
