@@ -1,44 +1,34 @@
 import type { ChangeEvent, MouseEvent } from 'react'
-import { useState } from 'react'
 import { FormControl, InputLabel, MenuItem, Paper, Stack, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface SearchFormProps {
     years: string[]
     categories: string[]
-    filterName: (name: string) => void
-    filterYear: (year: number) => void
-    filterCategory: (category: string) => void
+    value: {
+        search: string
+        year: string
+        category: string
+    }
+    onSearchChange: (search: string) => void
+    onYearChange: (year: string) => void
+    onCategoryChange: (category: string) => void
 }
 
 function SearchForm(props: SearchFormProps) {
-    const { years, categories, filterName, filterYear, filterCategory } = props
-    const [year, setYear] = useState('All')
-    const [category, setCategory] = useState('All')
-    const [search, setSearch] = useState('');
+    const { years, categories, value, onSearchChange, onYearChange, onCategoryChange } = props
+    const { search, year, category } = value
 
     const handleChangeSelect = (event: SelectChangeEvent) => {
-        const year: number = isNaN(parseInt(event.target.value)) ? -1 : parseInt(event.target.value)
-        setYear(event.target.value)
-        filterYear(year)
-        setSearch('')
-        setCategory('All')
+        onYearChange(event.target.value)
     }
 
     const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const name: string = event.target.value
-        setSearch(name)
-        filterName(name)
-        setYear('All')
-        setCategory('All')
+        onSearchChange(event.target.value)
     }
 
     const handleCategoryChange = (_event: MouseEvent<HTMLElement>, nextValue: string | null) => {
-        const value = nextValue ?? 'All'
-        setCategory(value)
-        filterCategory(value === 'All' ? '' : value)
-        setSearch('')
-        setYear('All')
+        onCategoryChange(nextValue ?? 'All')
     }
 
     return (
