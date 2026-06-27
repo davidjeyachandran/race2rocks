@@ -1,10 +1,11 @@
-import { Alert, Box, Button, Chip, Container, LinearProgress, Stack, Typography } from '@mui/material';
+import { Alert, Button, Container, LinearProgress, Stack, Typography } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
 import Hero from './components/Hero'
 import StatBand from './components/StatBand'
 import Podium from './components/Podium'
 import RunnerProfile from './components/RunnerProfile'
-import SearchForm from './components/SearchForm';
+import SearchBar from './components/SearchBar'
+import Filters from './components/Filters'
 import { pluck } from './utilities';
 import { sortByTime } from './sort'
 import { editionYears } from './stats'
@@ -33,9 +34,14 @@ function App() {
     const latestYear = allYears.length > 0 ? allYears[allYears.length - 1] : null
     const podiumYear = filters.year !== 'All' ? Number.parseInt(filters.year, 10) : latestYear
 
-    function clearFilters() {
-        setFilters({ search: '', year: 'All', category: 'All' })
-    }
+    // The edition to land on by default: the current calendar year if it has run, else the latest.
+    const defaultYear = useMemo(() => {
+        if (allYears.length === 0) return 'All'
+        const currentYear = new Date().getFullYear()
+        return String(allYears.includes(currentYear) ? currentYear : allYears[allYears.length - 1])
+    }, [allYears])
+
+    const isSearching = filters.search.trim() !== ''
 
     function applyFilters(input: RunDataType[], f: { search: string; year: string; category: string }) {
         let out = input
@@ -67,18 +73,25 @@ function App() {
     // Default the year filter to the current edition once data has loaded.
     const [yearInitialized, setYearInitialized] = useState(false)
     useEffect(() => {
-        if (yearInitialized || allYears.length === 0) return
-        const currentYear = new Date().getFullYear()
-        const defaultYear = allYears.includes(currentYear) ? currentYear : allYears[allYears.length - 1]
-        setFilters(prev => ({ ...prev, year: String(defaultYear) }))
+        if (yearInitialized || defaultYear === 'All') return
+        setFilters(prev => ({ ...prev, year: defaultYear }))
         setYearInitialized(true)
-    }, [allYears, yearInitialized])
+    }, [defaultYear, yearInitialized])
 
     useEffect(() => {
         setFilteredData(applyFilters(data, filters))
     }, [data, filters])
 
-    const hasActiveFilters = filters.search !== '' || filters.year !== 'All' || filters.category !== 'All'
+    function handleSearchChange(search: string) {
+        setFilters(prev => {
+            if (search.trim() !== '') {
+                // A name search spans every edition and category.
+                return { ...prev, search, year: 'All', category: 'All' }
+            }
+            // Clearing the search returns to browsing the latest edition.
+            return { ...prev, search: '', year: defaultYear, category: 'All' }
+        })
+    }
 
     return (
         <>
@@ -92,69 +105,19 @@ function App() {
             <Container maxWidth="md" sx={{ py: 3 }}>
                 <Stack spacing={2}>
                     {!isLoading && !error && <StatBand data={data} />}
-                    <SearchForm
-                        years={years}
-                        categories={categories}
-                        value={filters}
-                        onSearchChange={(search) => {
-                            setFilters(prev => ({ ...prev, search }))
-                        }}
-                        onYearChange={(year) => {
-                            setFilters(prev => ({ ...prev, year }))
-                        }}
-                        onCategoryChange={(category) => {
-                            setFilters(prev => ({ ...prev, category }))
-                        }}
-                    />
-                    {hasActiveFilters && (
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    gap: 1,
-                                    flex: 1,
-                                    flexWrap: { xs: 'nowrap', sm: 'wrap' },
-                                    overflowX: { xs: 'auto', sm: 'visible' },
-                                    WebkitOverflowScrolling: 'touch',
-                                    py: 0.5,
-                                }}
-                            >
-                                {filters.search !== '' && (
-                                    <Chip
-                                        label={`Search: ${filters.search}`}
-                                        onDelete={() => {
-                                            setFilters(prev => ({ ...prev, search: '' }))
-                                        }}
-                                        variant="outlined"
-                                        size="small"
-                                    />
-                                )}
-                                {filters.year !== 'All' && (
-                                    <Chip
-                                        label={`Year: ${filters.year}`}
-                                        onDelete={() => {
-                                            setFilters(prev => ({ ...prev, year: 'All' }))
-                                        }}
-                                        variant="outlined"
-                                        size="small"
-                                    />
-                                )}
-                                {filters.category !== 'All' && (
-                                    <Chip
-                                        label={`Category: ${filters.category}`}
-                                        onDelete={() => {
-                                            setFilters(prev => ({ ...prev, category: 'All' }))
-                                        }}
-                                        variant="outlined"
-                                        size="small"
-                                    />
-                                )}
-                            </Box>
-                            <Button variant="text" onClick={clearFilters}>
-                                Clear filters
-                            </Button>
-                        </Box>
+
+                    <SearchBar value={filters.search} onChange={handleSearchChange} />
+
+                    {!isSearching && (
+                        <Filters
+                            years={years}
+                            categories={categories}
+                            value={filters}
+                            onYearChange={(year) => setFilters(prev => ({ ...prev, year }))}
+                            onCategoryChange={(category) => setFilters(prev => ({ ...prev, category }))}
+                        />
                     )}
+
                     {isLoading ? (
                         <LinearProgress />
                     ) : error ? (
@@ -171,14 +134,17 @@ function App() {
                         </Alert>
                     ) : (
                         <>
-                            {podiumYear !== null && (
+                            {!isSearching && podiumYear !== null && (
                                 <Podium data={data} year={podiumYear} onSelectRunner={setSelectedRunner} />
                             )}
-                            {filteredData.length > 0 && (
-                                <Typography variant="body2" color="text.secondary">
-                                    {filteredData.length} result{filteredData.length === 1 ? '' : 's'}
-                                </Typography>
-                            )}
+                            <Typography variant="body2" color="text.secondary">
+                                {filteredData.length} result{filteredData.length === 1 ? '' : 's'}
+                                {isSearching
+                                    ? ` for “${filters.search.trim()}” across all years`
+                                    : filters.year !== 'All'
+                                        ? ` · ${filters.year}`
+                                        : ''}
+                            </Typography>
                             <Results data={filteredData} onSelectRunner={setSelectedRunner} />
                         </>
                     )}
