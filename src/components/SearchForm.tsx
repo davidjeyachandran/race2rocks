@@ -1,6 +1,5 @@
 import type { ChangeEvent, MouseEvent } from 'react'
-import { FormControl, InputLabel, MenuItem, Paper, Stack, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material'
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { Box, Paper, Slider, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
 
 interface SearchFormProps {
     years: string[]
@@ -19,10 +18,6 @@ function SearchForm(props: SearchFormProps) {
     const { years, categories, value, onSearchChange, onYearChange, onCategoryChange } = props
     const { search, year, category } = value
 
-    const handleChangeSelect = (event: SelectChangeEvent) => {
-        onYearChange(event.target.value)
-    }
-
     const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
         onSearchChange(event.target.value)
     }
@@ -31,36 +26,54 @@ function SearchForm(props: SearchFormProps) {
         onCategoryChange(nextValue ?? 'All')
     }
 
+    // years is ['All', '2012', '2013', …]; the slider scrubs through editions by index.
+    const yearIndex = Math.max(0, years.indexOf(year))
+    const yearLabel = (index: number) => (years[index] === 'All' ? 'All years' : years[index])
+
+    const handleYearSlide = (_event: Event, next: number | number[]) => {
+        const index = Array.isArray(next) ? next[0] : next
+        onYearChange(years[index] ?? 'All')
+    }
+
     return (
         <Paper variant="outlined" sx={{ p: 2, mt: 2 }}>
             <Stack spacing={2}>
-                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                    <TextField
-                        fullWidth
-                        id="search"
-                        label="Search"
-                        placeholder="Start typing a name…"
-                        variant="outlined"
-                        size="small"
-                        value={search}
-                        onChange={handleTextChange}
-                    />
-                    <FormControl fullWidth size="small">
-                        <InputLabel id="year-label">Year</InputLabel>
-                        <Select
-                            fullWidth
-                            labelId="year-label"
-                            id="year"
-                            value={year}
-                            label="Year"
-                            onChange={handleChangeSelect}
-                        >
-                            {years && years.length > 0 && years.map((item: string) => (
-                                <MenuItem key={item} value={item}>{item}</MenuItem>
-                            ))}
-                        </Select>
-                    </FormControl>
-                </Stack>
+                <TextField
+                    fullWidth
+                    id="search"
+                    label="Search"
+                    placeholder="Start typing a name…"
+                    variant="outlined"
+                    size="small"
+                    value={search}
+                    onChange={handleTextChange}
+                />
+
+                <Box>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', mb: 0.5 }}>
+                        <Typography variant="caption" color="text.secondary">
+                            Year
+                        </Typography>
+                        <Typography sx={{ fontWeight: 700 }}>
+                            {year === 'All' ? 'All years' : year}
+                        </Typography>
+                    </Box>
+                    <Box sx={{ px: 1 }}>
+                        <Slider
+                            aria-label="Year"
+                            value={yearIndex}
+                            min={0}
+                            max={Math.max(0, years.length - 1)}
+                            step={1}
+                            marks
+                            color="secondary"
+                            valueLabelDisplay="auto"
+                            valueLabelFormat={yearLabel}
+                            onChange={handleYearSlide}
+                            disabled={years.length <= 1}
+                        />
+                    </Box>
+                </Box>
 
                 <ToggleButtonGroup
                     value={category}
@@ -80,4 +93,4 @@ function SearchForm(props: SearchFormProps) {
     )
 }
 
-export default SearchForm;
+export default SearchForm

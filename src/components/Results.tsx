@@ -1,4 +1,4 @@
-import { Alert, Box, Chip } from '@mui/material';
+import { Alert, Box, Chip, Link } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,9 +9,10 @@ import Paper from '@mui/material/Paper';
 
 interface ResultsProps {
   data: RunDataType[]
+  onSelectRunner?: (name: string) => void
 }
 export default function Results(props: ResultsProps) {
-  const { data } = props
+  const { data, onSelectRunner } = props
   if (data.length === 0) {
     return (
       <Alert severity="info" variant="outlined">
@@ -35,8 +36,24 @@ export default function Results(props: ResultsProps) {
 
             {data.map((row) => (
               <TableRow key={row.name + row.time + row.year} hover>
-                <TableCell component="th" scope="row">{row.name}</TableCell>
-                <TableCell align="right">{row.time}</TableCell>
+                <TableCell component="th" scope="row">
+                  {onSelectRunner ? (
+                    <Link
+                      component="button"
+                      type="button"
+                      align="left"
+                      underline="hover"
+                      color="inherit"
+                      onClick={() => onSelectRunner(row.name)}
+                      sx={{ fontWeight: 600, cursor: 'pointer' }}
+                    >
+                      {row.name}
+                    </Link>
+                  ) : (
+                    row.name
+                  )}
+                </TableCell>
+                <TableCell align="right" sx={{ fontVariantNumeric: 'tabular-nums' }}>{row.time}</TableCell>
                 <TableCell align="right">{row.year}</TableCell>
                 <TableCell align="right">
                   <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>

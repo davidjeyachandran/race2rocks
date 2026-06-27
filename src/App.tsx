@@ -1,19 +1,26 @@
-import { Alert, Box, Button, Chip, Container, LinearProgress, Paper, Stack, Typography } from '@mui/material';
+import { Alert, Box, Button, Chip, Container, LinearProgress, Stack, Typography } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
-import Header from './components/Header'
+import Hero from './components/Hero'
+import StatBand from './components/StatBand'
+import Podium from './components/Podium'
+import RunnerProfile from './components/RunnerProfile'
 import SearchForm from './components/SearchForm';
 import { pluck } from './utilities';
 import { sortByTime } from './sort'
+import { editionYears } from './stats'
 import Results from './components/Results';
 import useLoadData from './hooks/useLoadData';
-import ChartLine from './components/ChartLine';
 
 const ENDPOINT = 'data.json'
+
+// Set this to the next race date to show a live countdown in the hero, e.g. new Date('2027-01-04').
+const NEXT_RACE: Date | undefined = undefined
 
 function App() {
     const [filteredData, setFilteredData] = useState<RunDataType[]>([]);
     const [years, setYears] = useState<string[]>(['All']);
     const [categories, setCategories] = useState<string[]>([]);
+    const [selectedRunner, setSelectedRunner] = useState<string | null>(null)
     const [filters, setFilters] = useState<{ search: string; year: string; category: string }>({
         search: '',
         year: 'All',
@@ -21,10 +28,10 @@ function App() {
     })
 
     const [data, isLoading, error, reload] = useLoadData(ENDPOINT)
-    const isSinglePersonResults = useMemo(() => {
-        if (filteredData.length === 0) return false
-        return new Set(filteredData.map(item => item.name)).size === 1
-    }, [filteredData])
+
+    const allYears = useMemo(() => editionYears(data), [data])
+    const latestYear = allYears.length > 0 ? allYears[allYears.length - 1] : null
+    const podiumYear = filters.year !== 'All' ? Number.parseInt(filters.year, 10) : latestYear
 
     function clearFilters() {
         setFilters({ search: '', year: 'All', category: 'All' })
@@ -53,9 +60,19 @@ function App() {
     }
 
     useEffect(() => {
-        setYears(['All'].concat(pluck(data, 'year')))
+        setYears(['All'].concat(pluck(data, 'year').map(String)))
         setCategories(['All'].concat(pluck(data, 'category')))
     }, [data])
+
+    // Default the year filter to the current edition once data has loaded.
+    const [yearInitialized, setYearInitialized] = useState(false)
+    useEffect(() => {
+        if (yearInitialized || allYears.length === 0) return
+        const currentYear = new Date().getFullYear()
+        const defaultYear = allYears.includes(currentYear) ? currentYear : allYears[allYears.length - 1]
+        setFilters(prev => ({ ...prev, year: String(defaultYear) }))
+        setYearInitialized(true)
+    }, [allYears, yearInitialized])
 
     useEffect(() => {
         setFilteredData(applyFilters(data, filters))
@@ -65,9 +82,16 @@ function App() {
 
     return (
         <>
-            <Header title='Race 2 the Rocks' />
+            <Hero
+                title='Race 2 the Rocks'
+                editions={allYears.length}
+                firstYear={allYears[0]}
+                lastYear={latestYear ?? undefined}
+                nextRace={NEXT_RACE}
+            />
             <Container maxWidth="md" sx={{ py: 3 }}>
                 <Stack spacing={2}>
+                    {!isLoading && !error && <StatBand data={data} />}
                     <SearchForm
                         years={years}
                         categories={categories}
@@ -147,24 +171,20 @@ function App() {
                         </Alert>
                     ) : (
                         <>
+                            {podiumYear !== null && (
+                                <Podium data={data} year={podiumYear} onSelectRunner={setSelectedRunner} />
+                            )}
                             {filteredData.length > 0 && (
                                 <Typography variant="body2" color="text.secondary">
                                     {filteredData.length} result{filteredData.length === 1 ? '' : 's'}
                                 </Typography>
                             )}
-                            <Results data={filteredData} />
+                            <Results data={filteredData} onSelectRunner={setSelectedRunner} />
                         </>
-                    )}
-                    {isSinglePersonResults && (
-                        <Paper variant="outlined" sx={{ p: 2 }}>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
-                                Trend over time
-                            </Typography>
-                            <ChartLine filteredData={filteredData} />
-                        </Paper>
                     )}
                 </Stack>
             </Container>
+            <RunnerProfile data={data} name={selectedRunner} onClose={() => setSelectedRunner(null)} />
         </>
     );
 }

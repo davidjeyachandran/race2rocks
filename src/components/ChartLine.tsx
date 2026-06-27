@@ -1,9 +1,11 @@
-import { Chart as ChartJS, CategoryScale, LinearScale, Legend, PointElement, LineElement } from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, Legend, PointElement, LineElement, Tooltip, TooltipItem } from "chart.js";
 import { Line } from 'react-chartjs-2'
 import { pluck, getSeconds } from '../utilities'
 import { sortByYear } from '../sort'
 
-ChartJS.register(CategoryScale, Legend, LinearScale, PointElement, LineElement);
+ChartJS.register(CategoryScale, Legend, LinearScale, PointElement, LineElement, Tooltip);
+
+const CORAL = '#d8572a'
 
 interface ChartLineProps {
   filteredData: RunDataType[]
@@ -22,11 +24,21 @@ function ChartLine({ filteredData }: ChartLineProps) {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top' as const,
+        display: false,
       },
       title: {
         display: true,
-        text: 'Time (minutes) by year',
+        text: 'Finish time (minutes) by year · lower is faster',
+      },
+      tooltip: {
+        callbacks: {
+          label: (ctx: TooltipItem<'line'>) => `${(ctx.parsed.y ?? 0).toFixed(1)} min`,
+        },
+      },
+    },
+    scales: {
+      y: {
+        title: { display: true, text: 'Minutes' },
       },
     },
   };
@@ -36,11 +48,14 @@ function ChartLine({ filteredData }: ChartLineProps) {
     datasets: [
       {
         label: filteredData[0]?.name,
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        backgroundColor: 'rgba(216, 87, 42, 0.2)',
+        borderColor: CORAL,
+        borderWidth: 2,
+        pointBackgroundColor: CORAL,
+        pointRadius: 4,
+        tension: 0.25,
+        hoverBackgroundColor: 'rgba(216, 87, 42, 0.4)',
+        hoverBorderColor: CORAL,
         data: times
       }
     ]
